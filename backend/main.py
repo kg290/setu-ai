@@ -16,11 +16,22 @@ app = FastAPI(
 # CORS — allow the React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "*",  # Allow Vercel deployment domains
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# On Vercel serverless, use /tmp for writable storage
+IS_VERCEL = os.environ.get("VERCEL", False)
+if IS_VERCEL:
+    settings.upload_dir = "/tmp/uploads"
+    settings.database_path = "/tmp/setu.db"
 
 # Ensure upload directory exists
 os.makedirs(settings.upload_dir, exist_ok=True)

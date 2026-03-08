@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 
 export async function createSession(language = "hi") {
   const res = await fetch(`${API_BASE}/session/create?language=${encodeURIComponent(language)}`, {
@@ -65,5 +65,7 @@ export async function listSchemes() {
 }
 
 export function getFormDownloadUrl(filename) {
-  return `http://localhost:8000/files/forms/${encodeURIComponent(filename)}`;
+  const base = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+  const origin = base.replace(/\/api\/?$/, "");
+  return `${origin}/files/forms/${encodeURIComponent(filename)}`;
 }
