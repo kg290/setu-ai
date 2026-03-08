@@ -2,6 +2,8 @@
 
 **AI Voice-Based Government Scheme Assistant**
 
+> **Live Demo:** [https://setu-ai-one.vercel.app](https://setu-ai-one.vercel.app)
+
 Setu AI is a voice-driven, multilingual assistant that helps Indian citizens discover and apply for government welfare schemes. It bridges the gap between complex government forms and the people who need them most — by speaking their language, reading their documents, and filling forms on their behalf.
 
 > **"Setu"** (सेतु) means **"Bridge"** — bridging people to government benefits.

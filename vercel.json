@@ -1,16 +1,9 @@
 {
   "version": 2,
+  "framework": "vite",
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/files/(.*)", "destination": "/api" },
     { "source": "/(.*)", "destination": "/" }
-  ],
-  "functions": {
-    "api/index.py": {
-      "runtime": "@vercel/python@4.3.1",
-      "maxDuration": 30
-    }
-  }
+  ]
 }
